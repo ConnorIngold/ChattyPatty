@@ -5,16 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+	  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="style.css" />
+
 </head>
 <body>
-    <div class="Register">
-		<div class="form">
-		  <form class="register-form">
-			<input type="text" placeholder="Name"/>
-			<input type="password" placeholder="Password"/>
-			<input type="text" placeholder="Email Address"/>
-			<button type="button" onclick="Register.html">create</button>
-			<p class="message">Already registered? <a href="loginpage.html?">Sign In</a></p>
-		  </form>
+  <div class="Register Page">
+		<div class="container">
+			<h1>TV No Signal</h1>
+			<div class="cc">
+				<div class="tv">
+				<div class="ab">		  
+					<div class="static-motion">CHATTY PATTY</div>
+				</div>
+					<span class="tvLogo">Status 200</span>
+				</div>
+			</div>
+		</div>
+    <div class="form">
+      <form class="register-form">
+        <input type="text" placeholder="Name" />
+        <input type="text" placeholder="Password" />
+        <input type="text" placeholder="Email Address" />
+        <button type="button" onclick="Register.html">Create</button>
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+      </form>
+      <form class="Register Form">
+        <input type="text" placeholder="Username" />
+        <input type="password" placeholder="Password" />
+        <button>Register</button>
+        <p class="message"> Not registered? <a href="Register.html">Create an account</a></p>
+      </form>
+
+    </div>
+  </div>
+
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script>
+		axios.post('https://afternoon-island-99074.herokuapp.com')
+		.then(response => {
+			console.log("Hi Rufus, this is my response", response);
+		})
+		.catch(error => {
+			console.log(error);
+		});
+	</script>
+
 </body>
 </html>

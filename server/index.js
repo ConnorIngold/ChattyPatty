@@ -26,9 +26,7 @@ app.get("/", (req, res) => { // get request
 })
 
 app.use(  
-  cors({
-    origin: "http://localhost:8080",
-  }),
+  cors(),
 )
 
 app.use( "/auth", auth) // uses /auth makes post requests e.g./auth/signup
