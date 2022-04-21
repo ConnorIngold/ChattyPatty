@@ -24,18 +24,13 @@
 			</div>
 		</div>
     <div class="form">
-      <form class="register-form">
-        <input type="text" placeholder="Name" />
-        <input type="text" placeholder="Password" />
-        <input type="text" placeholder="Email Address" />
-        <button type="button" onclick="Register.html">Create</button>
-        <p class="message">Already registered? <a href="#">Sign In</a></p>
-      </form>
-      <form class="Register Form">
-        <input type="text" placeholder="Username" />
-        <input type="password" placeholder="Password" />
+      <form class="Register Form" id="registerForm">
+        <input type="text" name="username" placeholder="Username" />
+        <input type="password" name="password" placeholder="Enter Password" />
         <button>Register</button>
-        <p class="message"> Not registered? <a href="Register.html">Create an account</a></p>
+
+				<span class="danger">Error: <span id="error"></span> </span>
+        <p class="message"> Registered already? <a href="loginpage.html">Login here</a></p>
       </form>
 
     </div>
@@ -43,13 +38,41 @@
 
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script>
-		axios.post('https://afternoon-island-99074.herokuapp.com')
+
+		// API request to get data
+		axios.get('https://afternoon-island-99074.herokuapp.com')
 		.then(response => {
+			
 			console.log("Hi Rufus, this is my response", response);
 		})
 		.catch(error => {
 			console.log(error);
 		});
+
+		const registerForm = document.getElementById('registerForm')
+
+		registerForm.onsubmit = (event) => {
+			// Stops old bug happening where the page redirects
+			event.preventDefault();
+
+			// axios is JS libary to do easy API calls 
+			// here were posting (creating) a user 
+			axios.post('/https://afternoon-island-99074.herokuapp.com/api/auth/register', {
+				username: registerForm.username.value,
+				passsword: registerForm.password.value
+			})
+			// if succesful run this
+			.then(response => {
+				console.log(response);
+			})
+				// else if theres an error run this
+			.catch(error => {
+				document.getElementById('error').innerText = error.message
+				console.log(error);
+			})
+
+		}
+
 	</script>
 
 </body>

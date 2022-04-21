@@ -1,0 +1,13 @@
+.bg{
+  background: #21212b;
+  height: 500px;
+  width: 500px;
+  border-radius: 8px;
+  padding: 30px;
+}
+
+.row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
