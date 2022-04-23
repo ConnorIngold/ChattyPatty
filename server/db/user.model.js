@@ -15,6 +15,10 @@ const UserSchema = new Schema( // the schema for the database users, consists of
     password: { // password attribute fields 
       type: String,
       required: true,
+    },
+    admin:{
+      type: Boolean,
+      required: false,
     }
   },
   {

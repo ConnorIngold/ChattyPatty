@@ -22,12 +22,13 @@ router.post("/signup", (req, res, next) => { // all index.js files must use rout
       } else {
           let username = req.body.username
           let password = req.body.password
-         
+          let admin    = req.body.admin
+
           let newUser = new User({
             _id: new mongoose.Types.ObjectId(), 
             username: username,
             password: password,
-            
+            admin: admin
           })
 
           newUser.save((err, newUser) => {
