@@ -23,7 +23,7 @@ router.post("/signup", (req, res, next) => { // all index.js files must use rout
           let username = req.body.username
           let password = req.body.password
           let admin    = req.body.admin
-
+// added admin 
           let newUser = new User({
             _id: new mongoose.Types.ObjectId(), 
             username: username,
