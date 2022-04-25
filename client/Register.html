@@ -27,12 +27,12 @@
       <form class="Register Form" id="registerForm">
         <input type="text" name="username" placeholder="Username" />
         <input type="password" name="password" placeholder="Enter Password" />
-        <button>Register</button>
-
+				<button>Register</button>
+				
 				<span class="danger">Error: <span id="error"></span> </span>
         <p class="message"> Registered already? <a href="loginpage.html">Login here</a></p>
       </form>
-
+			
     </div>
   </div>
 
@@ -42,7 +42,6 @@
 		// API request to get data
 		axios.get('https://afternoon-island-99074.herokuapp.com')
 		.then(response => {
-			
 			console.log("Hi Rufus, this is my response", response);
 		})
 		.catch(error => {
