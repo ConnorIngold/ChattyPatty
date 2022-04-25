@@ -1,8 +1,9 @@
 .bg{
+  
   background: #21212b;
   height: 500px;
   width: 500px;
-  border-radius: 8px;
+  border-radius: 60px;
   padding: 30px;
 }
 
