@@ -16,6 +16,10 @@ const UserSchema = new Schema( // the schema for the database users, consists of
       type: String,
       required: true,
     },
+    admin:{
+      type: Boolean,
+      required: false,
+    }
   },
   {
     timestamps: true,
