@@ -43,13 +43,13 @@
 	<script>
 
 		// API request to get data
-		axios.get('https://afternoon-island-99074.herokuapp.com')
-		.then(response => {
-			console.log("Hi Rufus, this is my response", response);
-		})
-		.catch(error => {
-			console.log(error);
-		});
+		// axios.get('https://afternoon-island-99074.herokuapp.com')
+		// .then(response => {
+		// 	console.log("Hi Rufus, this is my response", response);
+		// })
+		// .catch(error => {
+		// 	console.log(error);
+		// });
 
 		const registerForm = document.getElementById('registerForm')
 
@@ -59,13 +59,15 @@
 
 			// axios is JS libary to do easy API calls 
 			// here were posting (creating) a user 
-			axios.post('/https://afternoon-island-99074.herokuapp.com/api/auth/login', {
+			axios.post('http://localhost:3000/auth/login', {
 				username: registerForm.username.value,
-				passsword: registerForm.password.value
+				password: registerForm.password.value
 			})
 			// if succesful run this
 			.then(response => {
 				console.log(response);
+				// Store the userID in localStorage:
+				localStorage.user_id = response.data
 			})
 				// else if theres an error run this
 			.catch(error => {

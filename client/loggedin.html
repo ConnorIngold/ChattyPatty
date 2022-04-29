@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <title>Protected</title>
+</head>
+<body>
+  <div class="card border-secondary my-3 mx-auto" style="max-width: 20rem;">
+    <div class="card-header">Hello <span id="username">Loading...</span></div>
+    <div class="card-body">
+      <h4 class="card-title">Welcome to Chatty Patty</h4>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+  
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script defer>
+    window.onload = function() {
+		// API request to get data
+		axios.get('http://localhost:3000/auth/user_id?id=' + localStorage.user_id)
+		.then(response => {
+			console.log(response);
+      document.getElementById('username').innerText = response.data.username
+		})
+		.catch(error => {
+			console.log(error);
+		});
+  }
+	</script>
+</body>
+</html>
