@@ -1,3 +1,4 @@
 git add .
-git committ -m ""
+git commit -m ""
 git push origin (on the branch you are on)
+
