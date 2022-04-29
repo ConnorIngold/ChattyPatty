@@ -6,64 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-	  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="style.css" />
+      <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style.css" />
 
 </head>
 <body>
   <div class="Register Page">
-		<div class="container">
-			<h1>TV No Signal</h1>
-			<div class="cc">
-				<div class="tv">
-				<div class="ab">		  
-					<div class="static-motion">CHATTY PATTY</div>
-				</div>
-					<span class="tvLogo">Status 200</span>
-				</div>
-			</div>
-		</div>
+        <div class="container">
+            <h1>TV No Signal</h1>
+            <div class="cc">
+                <div class="tv">
+                <div class="ab">          
+                    <div class="static-motion">CHATTY PATTY</div>
+                </div>
+                    <span class="tvLogo">Status 200</span>
+                </div>
+            </div>
+        </div>
     <div class="form">
       <form class="Register Form" id="registerForm">
         <input type="text" name="username" placeholder="Username" />
         <input type="password" name="password" placeholder="Enter Password" />
-				<button>Register</button>
-				
-				<span class="danger">Error: <span id="error"></span> </span>
+                <button>Register</button>
+                
+                <span class="danger">Error: <span id="error"></span> </span>
         <p class="message"> Registered already? <a href="loginpage.html">Login here</a></p>
       </form>
-			
+            
     </div>
   </div>
 
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
 
-		const registerForm = document.getElementById('registerForm')
+        const registerForm = document.getElementById('registerForm')
 
-		registerForm.onsubmit = (event) => {
-			// Stops old bug happening where the page redirects
-			event.preventDefault();
+        registerForm.onsubmit = (event) => {
+            // Stops old bug happening where the page redirects
+            event.preventDefault();
 
-			// axios is JS libary to do easy API calls 
-			// here were posting (creating) a user 
-			axios.post('http://localhost:3000/auth/register', {
-				username: registerForm.username.value,
-				password: registerForm.password.value
-			})
-			// if succesful run this
-			.then(response => {
-				console.log(response);
-			})
-				// else if theres an error run this
-			.catch(error => {
-				document.getElementById('error').innerText = error.message
-				console.log(error);
-			})
+            // axios is JS libary to do easy API calls 
+            // here were posting (creating) a user 
+            axios.post('http://localhost:3000/auth/register', {
+                username: registerForm.username.value,
+                password: registerForm.password.value
+            })
+            // if succesful run this
+            .then(response => {
+                console.log(response);
+            })
+                // else if theres an error run this
+            .catch(error => {
+                document.getElementById('error').innerText = error.message
+                console.log(error);
+            })
 
-		}
+        }
 
-	</script>
+    </script>
 
 </body>
 </html>
