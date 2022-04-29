@@ -19,15 +19,17 @@ require("./db/connection")
 app.use(morgan("dev"))
 app.use(express.json())
 
+app.use(  
+  cors(),
+)
+
+
 app.get("/", (req, res) => { // get request 
   res.json({
     "message": "🦄🌈✨  Hello World!   🌈✨🦄",
   })
 })
 
-app.use(  
-  cors(),
-)
 
 app.use( "/auth", auth) // uses /auth makes post requests e.g./auth/signup
 

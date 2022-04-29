@@ -15,27 +15,67 @@
 
 <body>
   <div class="Login Page">
+		<div class="container">
+			<h1>TV No Signal</h1>
+			<div class="cc">
+				<div class="tv">
+				<div class="ab">		  
+					<div class="static-motion">CHATTY PATTY</div>
+				</div>
+					<span class="tvLogo">Status 200</span>
+				</div>
+			</div>
+		</div>
     <div class="form">
-      <form class="register-form">
-        <input type="text" placeholder="Name" />
-        <input type="text" placeholder="Password" />
-        <input type="text" placeholder="Email Address" />
-        <button type="button" onclick="Register.html">Create</button>
-        <p class="message">Already registered? <a href="#">Sign In</a></p>
-      </form>
-      <form class="Login Form">
-        <input type="text" placeholder="Username" />
-        <input type="password" placeholder="Password" />
+      <form class="Login Form" id="registerForm">
+        <input type="text" name="username" placeholder="Username" />
+        <input type="password" name="password" placeholder="Enter Password" />
         <button>Login</button>
-        <p class="message"> Not registered? <a href="Register.html">Create an account</a></p>
+
+				<span class="danger">Error: <span id="error"></span> </span>
+        <p class="message"> Already have an account? <a href="Register.html">Login here</a></p>
       </form>
-      <div class="container">
-        <div class="glitch" data-text="Chatty Patty"> Chatty Patty </div>
-        <div class="glow"> Chatty Patty </div>
-        <p class="subtitle">For all the keyboard warriors</p>
-      </div>
+
     </div>
   </div>
-</body>
 
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script>
+
+		// API request to get data
+		// axios.get('https://afternoon-island-99074.herokuapp.com')
+		// .then(response => {
+		// 	console.log("Hi Rufus, this is my response", response);
+		// })
+		// .catch(error => {
+		// 	console.log(error);
+		// });
+
+		const registerForm = document.getElementById('registerForm')
+
+		registerForm.onsubmit = (event) => {
+			// Stops old bug happening where the page redirects
+			event.preventDefault();
+
+			// axios is JS libary to do easy API calls 
+			// here were posting (creating) a user 
+			axios.post('http://localhost:3000/auth/login', {
+				username: registerForm.username.value,
+				password: registerForm.password.value
+			})
+			// if succesful run this
+			.then(response => {
+				console.log(response);
+				// Store the userID in localStorage:
+				localStorage.user_id = response.data
+			})
+				// else if theres an error run this
+			.catch(error => {
+				document.getElementById('error').innerText = error.message
+				console.log(error);
+			})
+
+		}
+
+	</script>
 </html>

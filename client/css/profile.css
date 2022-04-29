@@ -1,11 +1,17 @@
 .bg{
+  
   background: #21212b;
   height: 500px;
   width: 500px;
+<<<<<<< HEAD
   border-radius: 10px;
   padding: 50px;
   margin: 1000px;
   display: inline-block;
+=======
+  border-radius: 60px;
+  padding: 30px;
+>>>>>>> afa60cb99a4bc5fb0179532eba3df469dd7fd54e
 }
 
 .row{

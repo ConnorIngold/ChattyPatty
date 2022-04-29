@@ -5,11 +5,65 @@ const mongoose = require("mongoose")  // Importing mongoose, an object data mode
 // const db = require("../db/connection")
 const User = require("../db/user.model")
 
-router.get("/", (req, res,) => {
-  res.json({"msg": "hello word"})
+router.get('/test', (req, res) => {
+  // get token from the headers
+  res.send("Hello from auth")
 })
 
-router.post("/signup", (req, res, next) => { // all index.js files must use router is used 
+
+// router.get('/user_id', (req, res) => {
+//   // get user id from the query parameter
+//   User.findOne({
+//     _id: req.query.id,
+//   }).then((result) => {
+//     res.status(200).send("Authenticated:" + result)
+//   }).catch((err) => {
+//     res.status(401).send("Auth error: " + err)
+//   });
+
+// })
+
+
+router.get('/user_id', (req, res) => {
+  // get user id from the query parameter
+  User.findOne({
+    _id: req.query.id,
+  }).then((result) => {
+    if (result) {
+      res.status(200).json(result)
+    } else {
+      res.status(401).json({"Auth error: ": err})
+    }
+  }).catch((err) => {
+    res.status(401).json({"Auth error: ": err})
+  });
+})
+
+
+
+
+// router.get('/user_id', (req, res) => {
+//   // get user id from the query parameter
+//   console.log("a", req.query.user_id);
+//   User.findOne({
+//     _id: req.query.user_id,
+//   }).then((result) => {
+//     if (result) {
+//       res.status(200).send("Authenticated: ")
+//     } else {
+//       res.status(401).send("Db Auth error: " + err)
+//       console.log("🚀 ~ file: index.js ~ line 23 ~ router.get ~ status")
+//       // 
+//     }
+//   }).catch((err) => {
+//     res.status(401).json({"Auth error: ": err, "mesage": "a"})
+//     console.log("🚀 ~ file: index.js ~ line 28 ~ router.get ~ status")
+
+//   });
+
+// })
+
+router.post("/register", (req, res, next) => { // all index.js files must use router is used 
     // username is unique
     User.findOne({
       username: req.body.username,
@@ -46,6 +100,37 @@ router.post("/signup", (req, res, next) => { // all index.js files must use rout
     }).catch(err => console.log(err))
   
 })
+
+router.post("/login", (req, res, next) => { 
+  let username = req.body.username
+  let password = req.body.password
+
+  // find a user with the username sent from the client
+  User.findOne({
+    username: username
+  }).then((user) => {
+    // if no user found
+    if (!user) {
+      // then throw an error letting the user know that username doesn't exist
+      const error = new Error("That username is doesn't exist")
+      // 404 means user doesn't exist
+      res.status(404)
+      next(error)
+    } else {
+      // else the username exists and need to check the password 
+      // sent to us matches the password in the database
+      if (user.password === password) {
+        return res.status(200).json(user._id)
+      } else {
+        const error = new Error("The username was correct but password is incorrect")
+        res.status(401)
+        next(error)
+      }
+    }
+  }).catch(err => console.log(err))
+})
+
+
 router.get('/findAll', (req, res) => {
 
   User.find().then(user => {

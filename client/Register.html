@@ -40,6 +40,7 @@
 	<script>
 
 		// API request to get data
+<<<<<<< HEAD
 		axios.get('https://afternoon-island-99074.herokuapp.com')
 		.then(response => {
 			console.log("Hi Rufus, this is my response", response);
@@ -47,6 +48,15 @@
 		.catch(error => {
 			console.log(error);
 		});
+=======
+		// axios.get('https://afternoon-island-99074.herokuapp.com')
+		// .then(response => {
+		// 	console.log("Hi Rufus, this is my response", response);
+		// })
+		// .catch(error => {
+		// 	console.log(error);
+		// });
+>>>>>>> afa60cb99a4bc5fb0179532eba3df469dd7fd54e
 
 		const registerForm = document.getElementById('registerForm')
 
@@ -56,9 +66,9 @@
 
 			// axios is JS libary to do easy API calls 
 			// here were posting (creating) a user 
-			axios.post('/https://afternoon-island-99074.herokuapp.com/api/auth/register', {
+			axios.post('http://localhost:3000/auth/register', {
 				username: registerForm.username.value,
-				passsword: registerForm.password.value
+				password: registerForm.password.value
 			})
 			// if succesful run this
 			.then(response => {
