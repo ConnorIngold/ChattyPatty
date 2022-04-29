@@ -26,7 +26,7 @@
       document.getElementById('username').innerText = response.data.username
 		})
 		.catch(error => {
-			console.log(error);
+      window.location.replace("loginpage.html");
 		});
   }
 	</script>
