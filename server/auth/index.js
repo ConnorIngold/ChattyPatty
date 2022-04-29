@@ -39,6 +39,18 @@ router.get('/user_id', (req, res) => {
   });
 })
 
+router.get('/a', (req, res) => {
+  // get user id from the query parameter
+  User.find().then((result) => {
+    if (result) {
+      res.status(200).json(result)
+    } else {
+      res.status(401).json({"Auth error: ": err})
+    }
+  }).catch((err) => {
+    res.status(401).json({"Auth error: ": err})
+  });
+})
 
 
 
