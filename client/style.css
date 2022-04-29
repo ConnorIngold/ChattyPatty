@@ -8,7 +8,7 @@
 	display: none;
   }
   .form {
-	position: relative;
+	position: relative !important;
 	z-index: 1;
 	background: #FFFFFF;
 	max-width: 360px;
