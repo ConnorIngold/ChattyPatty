@@ -9,7 +9,7 @@ router.get("/", (req, res,) => {
   res.json({"msg": "hello word"})
 })
 
-router.post("/signup", (req, res, next) => { // all index.js files must use router is used 
+router.post("/register", (req, res, next) => { // all index.js files must use router is used 
     // username is unique
     User.findOne({
       username: req.body.username,
@@ -46,6 +46,38 @@ router.post("/signup", (req, res, next) => { // all index.js files must use rout
     }).catch(err => console.log(err))
   
 })
+
+router.post("/login", (req, res, next) => { 
+  let username = req.body.username
+  let password = req.body.password
+
+  // find a user with the username sent from the client
+  User.findOne({
+    username: username
+  }).then((user) => {
+    // if no user found
+    if (!user) {
+      // then throw an error letting the user know that username doesn't exist
+      const error = new Error("That username is doesn't exist")
+      // 404 means user doesn't exist
+      res.status(404)
+      next(error)
+    } else {
+      // else the username exists and need to check the password 
+      // sent to us matches the password in the database
+      if (user.password === password) {
+        return res.json(user._id).status(200)
+      } else {
+        const error = new Error("The username was correct but password is incorrect")
+        // 404 means user doesn't exist
+        res.status(404)
+        next(error)
+      }
+    }
+  }).catch(err => console.log(err))
+})
+
+
 router.get('/findAll', (req, res) => {
 
   User.find().then(user => {
