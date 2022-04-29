@@ -1,5 +1,6 @@
 .h2{
 	font-family: Arial, sans-serif;
+	font-weight: bold;
 }
 /* .sidebar{
 
@@ -9,10 +10,10 @@
 
 .body{
 	background-color: #575A4B;
-	height: 1750px;
-	width: 1750px;
-	margin-left: 100px;
-	margin-right: 100px;
+	height: 1800px;
+	width: 1850px;
+	margin-left: 10px;
+	margin-right: 10px;
 	margin-bottom: 50px;
 	border-radius: 0px;
 	/* shadow */
@@ -24,8 +25,8 @@
 	background: #FFFFFF;
 	height: 230px;
 	width: 860px;
-	border-radius: 20px;
-	margin-top: 250px;
+	border-radius: 10px;
+	margin-top: 150px;
 	margin-left: 100px;
 }
 
@@ -60,16 +61,17 @@
   }
 
 button{
-	background-color: #575A4B; /* Green */
+	background-color: #FF1F1F; /* Red */
 	border: none;
 	color: #FFFFFF;
-	padding: 5px;
+	padding: 10px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 12px;
+	font-size: 14px;
 	font-family: Arial, sans-serif;
-  	margin: 20px;
+	font-weight: bold;
+  	margin: 15px;
   	cursor: pointer;
   	-webkit-transition-duration: 1.0s; 
   	transition-duration: 0.5s;
@@ -81,3 +83,97 @@ button{
 button:hover {
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
+.notes__sidebar {
+	border-right: 50px solid #320F42 ;
+	/* flex-shrink: 0; */
+	overflow-x: 100px;
+	padding: 4em;
+	width: 800px;
+	background-color: #320F42;
+	height: 1704px;
+	width: 230px;
+	
+}
+
+input{
+	font-size: 17px;
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-right: 300px;
+}
+body{
+	margin: 0px;
+	background: #efefef !important;
+} 
+
+#sidebar{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 350px;
+	height: 100%;
+	background: #fff;
+	padding: 15px;
+} 
+
+ #profile{
+	position: fixed;
+	top: 30px;
+	right: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+} 
+ #profile img{
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	margin-left: 10px;
+}
+
+main{
+	margin-top: 25vh;
+	margin-left: 350px;
+}
+
+ .container{
+	max-width: 800px;
+	margin: auto;
+}
+
+form{
+	display: flex;
+	flex-direction: column;
+}
+form input{
+	margin-bottom: 30px;
+	border: none;
+}
+form textarea{
+	border: none;
+}
+.box{
+	margin-top: 30px;
+	background: #fff;
+	padding: 30px;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+	border-radius: 4px;
+}
+.addNote{
+	margin-top: 30px;
+	width: 100%;
+}
+
+.note_box{
+	font-size: 17px;
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+}
+
+
+
+
+
+

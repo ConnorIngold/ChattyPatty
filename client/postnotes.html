@@ -1,45 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./css/postnotes.css">
 	<title> All Notes </title>
-	<h2 class="h2">
-			notes
-	</h2>
-	
+
+
 </head>
+
 <body>
-	<div class="sidebar"> Notes </div>
-	<div class="body">
-		<div class="margin">
-			<div class="block">
-					<div class="row">
-						<div class="row">
-							<div class="column">
-							<h2> 
-								Note Title 
-							</h2>
-							<h3> 
-								Write Notes here ... 
-							</h3>
-							<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.								
-							</p>
-									<button>	
-										Add note	
-									</button> 
-							</div>
-								
-						</div>
-					</div>	
-				</div>
-				
-			</div>	
+
+		<div class="" id="sidebar">
+			<h2 class="h2">
+				notes
+			</h2>
+			<h4>
+				My Notes
+			</h4>
+			<ul>
+				<li>Dummy text</li>
+				<li>test</li>
+				<li>lorem</li>
+				<li>ipsum</li>
+			</ul>
 		</div>
-		
-	</div>			
+
+		<div class="" id="profile">
+			<span>John Doe</span>
+			<img src="https://via.placeholder.com/150" alt="">
+		</div>
+
+		<main id="main">
+			<div class="container">
+			 <div class="addNote box">
+				<form action="">
+					<input type="text" placeholder="Note Title" class="note_box">
+					<textarea name="" id="" cols="30" rows="10" placeholder="Write a note ..." class="note_box"></textarea>
+				</form>
+
+			 </div>
+			</div>
+		</main>
+
+		<!-- <style>
+			body{
+				margin: 0px;
+				background: #efefef !important;
+			} 
+
+			#sidebar{
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 350px;
+				height: 100%;
+				background: #fff;
+				padding: 15px;
+			} 
+
+			 #profile{
+				position: fixed;
+				top: 30px;
+				right: 30px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			} 
+			 #profile img{
+				height: 50px;
+				width: 50px;
+				border-radius: 50%;
+				margin-left: 10px;
+			}
+
+			main{
+				margin-top: 25vh;
+				margin-left: 350px;
+			}
+
+			 .container{
+				max-width: 800px;
+				margin: auto;
+			}
+
+			form{
+				display: flex;
+				flex-direction: column;
+			}
+			form input{
+				margin-bottom: 30px;
+				border: none;
+			}
+			form textarea{
+				border: none;
+			}
+			.box{
+				margin-top: 30px;
+				background: #fff;
+				padding: 30px;
+				box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+				border-radius: 4px;
+			}
+			.addNote{
+				margin-top: 30px;
+				width: 100%;
+			}
+		</style> -->
+
+		<h2 id="date">Today</h2>
+
 </body>
+
 </html>
