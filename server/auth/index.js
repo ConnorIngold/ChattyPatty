@@ -69,8 +69,7 @@ router.post("/login", (req, res, next) => {
         return res.json(user._id).status(200)
       } else {
         const error = new Error("The username was correct but password is incorrect")
-        // 404 means user doesn't exist
-        res.status(404)
+        res.status(401)
         next(error)
       }
     }
