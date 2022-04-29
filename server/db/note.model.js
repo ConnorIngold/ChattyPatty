@@ -18,6 +18,10 @@ const NoteSchema = new Schema(
     note: {
       type: String,
       required: true, 
+    },
+    private: {
+      type: Boolean,
+      required: true
     }
   },
   {
