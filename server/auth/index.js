@@ -144,10 +144,11 @@ router.post("/login", (req, res, next) => {
 
 
 router.get('/findAll', (req, res) => {
-
+if (req.body.user.admin === true) {
+  
   User.find().then(user => {
     res.json(user)
   })
-
+}
 })
 module.exports = router // exporting the router for other files to access, the router muse also imports in other files
