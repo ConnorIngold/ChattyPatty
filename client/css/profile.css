@@ -1,22 +1,38 @@
+body{
+  background-color: #17181f;
+  text-align: center;
+}
+
+h2, h5, p{
+  color: #fff;
+  font-family: Oswald;
+  text-align: left;
+}
+h2{
+  text-align: center;
+}
+button{
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #320f42;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
 .bg{
   background: #21212b;
-  height: 500px;
+  min-height: 350px;
   width: 500px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/Eamonn_work
-  border-radius: 10px;
-  padding: 50px;
-  margin: 1000px;
   display: inline-block;
-<<<<<<< HEAD
-=======
   border-radius: 60px;
   padding: 30px;
->>>>>>> afa60cb99a4bc5fb0179532eba3df469dd7fd54e
-=======
->>>>>>> origin/Eamonn_work
 }
 
 .row{

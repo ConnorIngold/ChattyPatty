@@ -99,7 +99,7 @@ router.post("/register", (req, res, next) => { // all index.js files must use ro
 
           newUser.save((err, newUser) => {
             if (err) {
-              return res.send({
+              res.status(400).send({
                 success: false,
                 message: "Server error: " + err,
               })

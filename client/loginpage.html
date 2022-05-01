@@ -5,22 +5,22 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./css/style.css">
   <title> Login Page</title>
 
   <!-- puts scripts, create form for sign up, adding notes, showing notes, signup.html, addNote.html, showNotes.html, accountPage.html  -->
   <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <div class="Login Page">
 		<div class="container">
-			<h1>TV No Signal</h1>
+			<h1>TV No Signal <br> <p style="font-size: 14px; color: rgb(50 15 66 / 65%);">Login Below:</p> </h1>
 			<div class="cc">
 				<div class="tv">
 				<div class="ab">		  
-					<div class="static-motion">CHATTY PATTY</div>
+					<div class="static-motion">CHATTY PATTY <br></div>
+
 				</div>
 					<span class="tvLogo">Status 200</span>
 				</div>
@@ -31,9 +31,11 @@
         <input type="text" name="username" placeholder="Username" />
         <input type="password" name="password" placeholder="Enter Password" />
         <button>Login</button>
-
+                
 				<span class="danger">Error: <span id="error"></span> </span>
-        <p class="message"> Already have an account? <a href="Register.html">Login here</a></p>
+				<span class="success">Success</span>
+
+        <p class="message"> Don't have an account? <a href="Register.html">Register here</a></p>
       </form>
 
     </div>
@@ -41,15 +43,6 @@
 
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script>
-
-		// API request to get data
-		// axios.get('https://afternoon-island-99074.herokuapp.com')
-		// .then(response => {
-		// 	console.log("Hi Rufus, this is my response", response);
-		// })
-		// .catch(error => {
-		// 	console.log(error);
-		// });
 
 		const registerForm = document.getElementById('registerForm')
 
@@ -68,11 +61,19 @@
 				console.log(response);
 				// Store the userID in localStorage:
 				localStorage.user_id = response.data
+
+				// A function that runs after
+				setTimeout(() => {
+					window.location.replace("loggedin.html");
+				}, 1000);
+
+
 			})
 				// else if theres an error run this
 			.catch(error => {
-				document.getElementById('error').innerText = error.message
-				console.log(error);
+				console.log(error.response.data.message);
+				document.querySelector('.danger').style.display = "block"
+				document.getElementById('error').innerText = error.response.data.message
 			})
 
 		}

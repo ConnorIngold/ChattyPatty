@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-      <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./css/style.css">
 
 </head>
 <body>
   <div class="Register Page">
         <div class="container">
-            <h1>TV No Signal</h1>
+            <h1>TV No Signal <p style="font-size: 14px; color: rgb(50 15 66 / 65%);">Register Below:</p></h1>
             <div class="cc">
                 <div class="tv">
                 <div class="ab">          
-                    <div class="static-motion">CHATTY PATTY</div>
+                    <div class="static-motion">CHATTY PATTY </div>
                 </div>
                     <span class="tvLogo">Status 200</span>
                 </div>
@@ -30,6 +30,8 @@
                 <button>Register</button>
                 
                 <span class="danger">Error: <span id="error"></span> </span>
+                <span class="success">You have been successfully registered! You will now redirected to the login page.</span>
+
         <p class="message"> Registered already? <a href="loginpage.html">Login here</a></p>
       </form>
             
@@ -55,11 +57,16 @@
             // if succesful run this
             .then(response => {
                 console.log(response);
+                document.querySelector('.success').style.display = "block"
+                setTimeout(() => {
+					window.location.replace("loginpage.html");
+				}, 5000);
             })
                 // else if theres an error run this
             .catch(error => {
-                document.getElementById('error').innerText = error.message
-                console.log(error);
+                console.log(error.response.data.message);
+                document.querySelector('.danger').style.display = "block"
+                document.getElementById('error').innerText = error.response.data.message
             })
 
         }

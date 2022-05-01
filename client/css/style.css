@@ -521,6 +521,23 @@ background-image: url('data:image/gif;base64,R0lGODlhwwCOAPcAAAAAAHNzc4iIiJSUlKC
 	color: #6a6a6a;
 }
 
+.success {
+  color: #0f5132;
+	padding: 15px;
+	margin: 15px 0px;
+  background-color: #d1e7dd;
+  border-color: #badbcc;
+	display: none;
+}
+
+.danger{
+	color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+  margin: 15px 0px;
+	padding: 15px;
+}
+
 @media (max-width: 720px){
 	.container h1{
 		font-size: 32px;
@@ -531,6 +548,11 @@ background-image: url('data:image/gif;base64,R0lGODlhwwCOAPcAAAAAAHNzc4iIiJSUlKC
 		font-size: 32px;
 	}
 }
+
+.danger{
+	display: none;
+}
+
 @media (max-width: 640px){
 	.form{
 		background: rgba(255, 255, 255, 0.7);
