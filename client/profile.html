@@ -53,7 +53,7 @@
 	<script defer>
     window.onload = function() {
 		// API request to get data
-		axios.get('http://localhost:3000/auth/user_id?id=' + localStorage.user_id)
+		axios.get(envUrl + '/auth/user_id?id=' + localStorage.user_id)
 		.then(response => {
 			console.log(response);
 			document.getElementById('userID').innerText = localStorage.user_id
